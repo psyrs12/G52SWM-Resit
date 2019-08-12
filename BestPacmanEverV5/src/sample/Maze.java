@@ -7,7 +7,25 @@ import javafx.scene.Group;
 import java.util.HashSet;
 import java.util.Set;
 
+
+
+
+
+
+import javafx.scene.Scene;
+import javafx.scene.input.KeyEvent;
+
+
+
+
+
+
 public class Maze {
+
+   /* Group root = new Group();
+    Scene theScene = new Scene(root);
+    GameManager gameManager = new GameManager(root);*/
+   public static boolean Touch = false;
 
     public Set<BarObstacle> obstacles;
 
@@ -43,15 +61,32 @@ public class Maze {
      * @param toY
      * @return
      */
-    public Boolean hasObstacle(double fromX,  double toX, double fromY, double toY) {
+    public Boolean hasObstacle(double fromX,  double toX, double fromY, double toY)
+    {
         boolean isTouching = false;
-        for (double i = fromX; i < toX; i++) {
-            for (double j = fromY; j < toY; j++) {
-                if (this.isTouching(i, j, 0)) isTouching = true;
+        for (double i = fromX; i < toX; i++)
+        {
+            for (double j = fromY; j < toY; j++)
+            {
+                if (this.isTouching(i, j, 0)) {
+                    isTouching = true;
+                    Maze.Touch = true;
+                }
             }
         }
+
+
+     /*   if(isTouching = true)
+        {
+
+            theScene.addEventHandler(KeyEvent.KEY_RELEASED, event -> gameManager.stopPacman(event));
+
+        }*/
+
         return isTouching;
     }
+
+
 
     /**
      * Draws the maze

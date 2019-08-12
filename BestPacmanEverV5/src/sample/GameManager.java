@@ -266,7 +266,8 @@ public class GameManager {
      * Stops the pacman
      * @param event
      */
-    public void stopPacman(KeyEvent event) {
+    public void stopPacman(KeyEvent event)
+    {
         switch(event.getCode()) {
             case RIGHT:
                 this.rightPacmanAnimation.stop();
@@ -288,7 +289,11 @@ public class GameManager {
      * @param direction
      * @return
      */
-    private AnimationTimer createAnimation(String direction) {
+    private AnimationTimer createAnimation(String direction)
+    {
+
+
+
         double step = 5;
         return new AnimationTimer()
         {
@@ -299,7 +304,10 @@ public class GameManager {
                     if (!maze.isTouching(pacman.getCenterX() - pacman.getRadius(), pacman.getCenterY(), 15)) {
                         pacman.setCenterX(pacman.getCenterX() - step);
                         checkCookieCoalition(pacman, "x");
+
                         checkGhostCoalition();
+
+
                     }
                     break;
                 case "right":
